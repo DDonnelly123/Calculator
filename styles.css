@@ -1,0 +1,56 @@
+html {
+    min-height: 100%;
+}
+
+body {
+   margin: 0;
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.main {
+    border: 5px solid black;
+    padding: 20px;
+    height: auto;
+}
+
+button {
+    display: flex;
+    height: 90px;
+    width: 90px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    border-radius: 5px;
+    border: 2px solid lightcoral;
+}
+
+.buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+}
+.span2 {
+    grid-column: span 2;
+    width: 185px;
+}
+
+.AC {
+    background-color: cadetblue;
+}
+
+.del {
+    background-color: chocolate;
+}
+
+.inputBar {
+    width: auto;
+    height: 120px;
+    border: 2px solid lightgray;
+    margin-bottom: 10px;
+    background-color: aliceblue;
+}
+

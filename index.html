@@ -6,33 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
 </head>
-    <div class="main">
-        <div class="Calculator">
-            <div class="top-row">
-                <button class="AC">AC</button>
-                <button class="del">Del</button>
-                <button id="divide" class="operator">/</button>
-            </div>
-            <div class="buttons-row">
-                <button class="numbers" value="1">1</button>
-                <button class="numbers" value="2">2</button>
-                <button class="numbers" value="3">3</button>
-                <button id="add" class="operator">+</button>
-                <button class="numbers" value="4">4</button>
-                <button class="numbers" value="5">5</button>
-                <button class="numbers" value="6">6</button>
-                <button id="minus" class="operator">-</button>
-                <button class="numbers" value="7">7</button>
-                <button class="numbers" value="8">8</button>
-                <button class="numbers" value="9">9</button>
-                <button id="times" class="operator">*</button>
-                <button class="numbers" value="0">0</button>
-                <button class="decimal">.</button>
-                <button id="equal" class="operator">=</button>
+    <body>
+        <div class="main">
+            <div class="Calculator">
+                <div class="top-row">
+                    <div class="inputBar"></div>
+                </div>
+                <div class="buttons-grid">
+                    <button class="AC span2">AC</button>
+                    <button class="del span2">Del</button>
+                    <button class="numbers" value="1">1</button>
+                    <button class="numbers" value="2">2</button>
+                    <button class="numbers" value="3">3</button>
+                    <button id="divide" class="operator" value="/">÷</button>
+                    <button class="numbers" value="4">4</button>
+                    <button class="numbers" value="5">5</button>
+                    <button class="numbers" value="6">6</button>
+                    <button id="add" class="operator" value="+">+</button>
+                    <button class="numbers" value="7">7</button>
+                    <button class="numbers" value="8">8</button>
+                    <button class="numbers" value="9">9</button>
+                    <button id="minus" class="operator" value="-">-</button>
+                    <button class="decimal" value=".">.</button>
+                    <button class="numbers" value="0">0</button>
+                    <button id="equal" class="operator" value="=">=</button>
+                    <button id="times" class="operator" value="*">x</button>
+                </div>
             </div>
         </div>
-    </div>
-<body>
-    
-</body>
+        <script src="index.js" defer></script>
+    </body>
 </html>
