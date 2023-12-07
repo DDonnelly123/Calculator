@@ -1,27 +1,20 @@
-// buttons = document.querySelectorAll("button")
-
-// buttons.forEach(btn => {
-//     btn.addEventListener('click', (e) => {
-//         alert(btn.value
-// )
-//     })
-// });
-
 let currentMode = ""
 let num1 = 0;
 let num2 = 0;
 
-add = document.querySelector("#add")
-minus = document.querySelector("#subtract")
-multiply = document.querySelector("#multiply")
-divide = document.querySelector("#divide")
-equal = document.querySelector("#equal")
+const display = document.querySelector(".inputBar")
+const numbers = document.querySelectorAll(".numbers");
+const addition = document.querySelector("#add");
+const minus = document.querySelector("#subtract");
+const multiply = document.querySelector("#multiply");
+const divide = document.querySelector("#divide");
+const equal = document.querySelector("#equal");
 
-add.addEventListener("click", () => {
-    currentMode = "add"
+addition.addEventListener("click", () => {
+    currentMode = "addition"
   });
   
-minus.addEventListener("click", () => {
+subtract.addEventListener("click", () => {
     currentMode = "subtract"
   });
   
@@ -34,17 +27,43 @@ divide.addEventListener("click", () => {
   });
 
 equal.addEventListener("click", () => {
-    currentMode = "equal"
+    // Perform the calculation here
+  const result = operate(currentMode, num1, num2);
+    // Display or use the result as needed
+  console.log(result);
+});
+
+numbers.forEach(number => {
+  number.addEventListener("click", (e) => {
+      const clickedNumber = parseFloat(e.target.value);
+      if (currentMode === "") {
+        num1 = clickedNumber;
+        num1A = num1 + clickedNumber
+        updateDisplay(num1A);
+      } else {
+        num2 = clickedNumber;
+        updateDisplay(num2);
+      }
   });
+});
+
 
 function operate(currentMode, num1, num2) {
-  if (currentMode === "add") {
-    return num1 + num2
+  if (currentMode === "addition") {
+    let result = num1 + num2
+    updateDisplay(result)
   } else if (currentMode === "subtract") {
-    return num1 - num2
+    let result = num1 - num2
+    updateDisplay(result)
   } else if (currentMode === "multiply") {
-    return num1 * num2
+    let result = num1 * num2
+    updateDisplay(result)
   } else if (currentMode === "divide") {
-    return num1 / num2
+    let result = num1 / num2
+    updateDisplay(result)
   }
+}
+
+function updateDisplay(result) {
+  display.innerHTML = result.toString(); // Convert the result to a string before setting it
 }

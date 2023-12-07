@@ -50,8 +50,8 @@ button {
 .inputBar {
     font-size: 25px;
     display: flex;
-    justify-content: end;
-    align-items: end;
+    justify-content: flex-end;
+    align-items: flex-end;
     width: auto;
     height: 120px;
     border: 2px solid lightgray;
