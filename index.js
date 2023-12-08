@@ -1,69 +1,73 @@
 let currentMode = ""
-let num1 = 0;
-let num2 = 0;
+let num1 = 0
+let num2 = 0
 
 const display = document.querySelector(".inputBar")
 const numbers = document.querySelectorAll(".numbers");
 const addition = document.querySelector("#add");
-const minus = document.querySelector("#subtract");
+const subtraction = document.querySelector("#subtract");
 const multiply = document.querySelector("#multiply");
 const divide = document.querySelector("#divide");
 const equal = document.querySelector("#equal");
 
 addition.addEventListener("click", () => {
-    currentMode = "addition"
-  });
+  currentMode = "+"
+  updateDisplay(`${num1} ${currentMode}`)
+});
   
-subtract.addEventListener("click", () => {
-    currentMode = "subtract"
-  });
+subtraction.addEventListener("click", () => {
+  currentMode = "-"
+  updateDisplay(`${num1} ${currentMode}`)
+});
   
 multiply.addEventListener("click", () => {
-    currentMode = "multiply"
-  })
+  currentMode = "*"
+  updateDisplay(`${num1} ${currentMode}`)
+});
   
 divide.addEventListener("click", () => {
-    currentMode = "divide"
-  });
+  currentMode = "÷"
+  updateDisplay(`${num1} ${currentMode}`)
+});
 
 equal.addEventListener("click", () => {
-    // Perform the calculation here
-  const result = operate(currentMode, num1, num2);
-    // Display or use the result as needed
-  console.log(result);
+  let result = operate(currentMode, num1, num2);
+  updateDisplay(result);
+  num1 = result;
+  num2 = 0;
 });
 
 numbers.forEach(number => {
   number.addEventListener("click", (e) => {
-      const clickedNumber = parseFloat(e.target.value);
+      const clickedNumber = e.target.value;
       if (currentMode === "") {
-        num1 = clickedNumber;
-        num1A = num1 + clickedNumber
-        updateDisplay(num1A);
+        num1 = num1 * 10 + parseFloat(clickedNumber);
+        updateDisplay(num1);
       } else {
-        num2 = clickedNumber;
-        updateDisplay(num2);
+        num2 = num2 * 10 + parseFloat(clickedNumber);
+        updateDisplay(`${num1} ${currentMode} ${num2}`);
       }
   });
 });
 
-
-function operate(currentMode, num1, num2) {
-  if (currentMode === "addition") {
-    let result = num1 + num2
-    updateDisplay(result)
-  } else if (currentMode === "subtract") {
-    let result = num1 - num2
-    updateDisplay(result)
-  } else if (currentMode === "multiply") {
-    let result = num1 * num2
-    updateDisplay(result)
-  } else if (currentMode === "divide") {
-    let result = num1 / num2
-    updateDisplay(result)
-  }
-}
-
 function updateDisplay(result) {
   display.innerHTML = result.toString(); // Convert the result to a string before setting it
 }
+
+
+function operate(currentMode, num1, num2) {
+  let result = 0
+  if (currentMode === "+") {
+    result = num1 + num2
+  } else if (currentMode === "-") {
+    result = num1 - num2
+  } else if (currentMode === "*") {
+    result = num1 * num2
+  } else if (currentMode === "÷" && num2 !== 0) {
+    result = num1 / num2
+  } else if (currentMode === "÷" && num2 === 0) {
+    alert("nuh-uh you cant divide by zero")
+  }
+  return result;
+}
+
