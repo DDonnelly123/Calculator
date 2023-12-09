@@ -47,11 +47,11 @@ button {
     background-color: chocolate;
 }
 
-.inputBar {
-    font-size: 25px;
+.top-row {
     display: flex;
     justify-content: flex-end;
-    align-items: flex-end;
+    flex-direction: column;
+    font-size: 25px;
     width: auto;
     height: 120px;
     border: 2px solid lightgray;
@@ -59,3 +59,8 @@ button {
     background-color: aliceblue;
 }
 
+.inputBar {
+    display: flex;
+    justify-content: end;
+    align-items: end;
+}
