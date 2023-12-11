@@ -27,21 +27,25 @@ const del = document.querySelector(".del");
 
 
 addition.addEventListener("click", () => {
+  equalDo()
   currentMode = "+"
   updateDisplay(`${num1}`)
 });
   
 subtraction.addEventListener("click", () => {
+  equalDo()
   currentMode = "-"
   updateDisplay(`${num1}`)
 });
   
 multiply.addEventListener("click", () => {
+  equalDo()
   currentMode = "*"
   updateDisplay(`${num1}`)
 });
   
 divide.addEventListener("click", () => {
+  equalDo()
   currentMode = "÷"
   updateDisplay(`${num1}`)
 });
@@ -81,6 +85,10 @@ del.addEventListener("click", () => {
 
 
 equal.addEventListener("click", () => {
+  equalDo()
+});
+
+function equalDo() {
   if (num1 !== 0 && num2 !== 0 && currentMode !== "") {
     let result = operate(currentMode, num1, num2);
     updateDisplay(result);
@@ -91,14 +99,12 @@ equal.addEventListener("click", () => {
     // Handle the case when there is an ongoing calculation
     let result = operate(currentMode, num1, num2);
     updateDisplay(result);
-    num1 = result;
+    result = num1
     equalChecker = true;
   }
   // Set currentMode to "=" so that the next operator will start a new calculation
   currentMode = "=";
-});
-
-
+}
 
 
 numbers.forEach(number => {
@@ -141,6 +147,9 @@ function operate(currentMode, num1, num2) {
     alert("nuh-uh you cant divide by zero")
     location.reload();
   }
+
+  result = Math.round(result * 100) / 100
+
   return result;
 }
 

@@ -15,6 +15,7 @@ body {
     border: 5px solid black;
     padding: 20px;
     height: auto;
+    border-radius: 10px;
 }
 
 button {
@@ -28,6 +29,18 @@ button {
     border-radius: 5px;
     border: 2px solid lightcoral;
 }
+.btn {
+    box-shadow: 2px 2px 2px 2px #666;
+    cursor: pointer;
+    transition: ease-in-out;
+    transition-duration: 250ms;
+}
+
+.btn:hover {
+    background-color: lightcoral;
+    color: white;
+}
+
 
 .buttons-grid {
     display: grid;
@@ -43,7 +56,15 @@ button {
     background-color: cadetblue;
 }
 
+.AC:hover {
+    background-color: cadetblue;
+}
+
 .del {
+    background-color: chocolate;
+}
+
+.del:hover {
     background-color: chocolate;
 }
 
@@ -51,16 +72,18 @@ button {
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
-    font-size: 25px;
+    font-size: 60px;
     width: auto;
     height: 120px;
     border: 2px solid lightgray;
     margin-bottom: 10px;
     background-color: aliceblue;
+    box-shadow: 2px 2px 2px 2px #666;
+    border-radius: 10px;
 }
 
 .inputBar {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     align-items: end;
 }
